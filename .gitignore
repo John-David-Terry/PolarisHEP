@@ -1,0 +1,36 @@
+# Virtual env
+.venv/
+venv/
+env/
+
+# Database and shards
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+
+# Data (TEI, PDFs, logs)
+data/tei/
+data/arxiv_pdfs/
+*.pdf
+
+# Work items and worker logs
+work_items.txt
+work_items_part_*
+worker_*.log
+*.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large CSVs (optional: uncomment if you don't want to track them)
+# top200_manifest*.csv
+# top200_citers_manifest.csv
