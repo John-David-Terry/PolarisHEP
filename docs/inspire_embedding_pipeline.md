@@ -86,6 +86,15 @@ python3.11 scripts/build_inspire_faiss_index.py \
 
 Large **memmap** + **Parquet** must not live in synced folders or the whole repo tree: cloud sync and IDE indexing can thrash on huge files. Keep the tree under `outputs_no_sync/` **or** pass an absolute path on a local disk via `--output-root`.
 
+## SQLite database (why it is not in Git)
+
+Your repo **`.gitignore`** lists **`*.sqlite`** (and **`*.sqlite-wal`** / **`*.sqlite-journal`**) so mirror databases stay local. That is intentional:
+
+- **`inspire.sqlite`** is on the order of **gigabytes** — far above GitHub’s **~100 MiB** per-file limit for normal Git pushes, so it **cannot** be hosted in the repo without **Git LFS** (paid storage/bandwidth) or an external asset (S3, Zenodo, shared drive, etc.).
+- Shard files **`inspire_01.sqlite`** … **`inspire_03.sqlite`** are also hundreds of MB to multiple GB — same constraint.
+
+Keep the DB path outside sync if needed; pass **`--db inspire.sqlite`** (or an absolute path) when running scripts.
+
 ## Requirements
 
 Install embedding stack (see `requirements-embeddings.txt`): `sentence-transformers`, `pandas`, `pyarrow`, `numpy`, `tqdm`.

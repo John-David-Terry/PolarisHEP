@@ -3,10 +3,11 @@
 venv/
 env/
 
-# Database and shards
+# Database and shards (INSPIRE mirror is multi-GB — use Git LFS or external hosting if you need it in version control)
 *.sqlite
 *.sqlite-journal
 *.sqlite-wal
+*.sqlite-shm
 
 # Data (TEI, PDFs, logs)
 data/tei/
