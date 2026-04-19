@@ -31,6 +31,10 @@ build/
 .DS_Store
 Thumbs.db
 
+# Corpus embedding outputs: large binaries under dedicated trees only (not global *.parquet)
+outputs_no_sync/
+outputs/
+
 # Large CSVs (optional: uncomment if you don't want to track them)
 # top200_manifest*.csv
 # top200_citers_manifest.csv
